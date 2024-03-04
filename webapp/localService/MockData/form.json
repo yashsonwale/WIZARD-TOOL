@@ -1,0 +1,119 @@
+{
+    "lineVisible":"false",
+    "SupplierInformation":[
+    {
+     "AccountGroup": "free for",
+     "ABN":"",
+     "ABNValueState":"None",
+     "ABNValueStateText":"",
+     "TradingName":  "contract",
+     "TradingNameValueState":  "None",
+     "TradingNameValueStateText": "",
+     "REgisterdforGst":"No",
+     "Legal Name":"demo",
+     "Supplier Name": "demooo",
+     "Entity type":"close"
+    }
+  ],
+ "StreetAddress":[
+     {
+    "Address": "street",
+    "AddressValueState":"",
+    "AddressValueStateText":"",
+    "addresses":[],
+    "validate": false,
+    "addAddressEnabled":true,
+    "Suburb": "area",
+    "State":  "Rj",
+    "PostCode":"324300",
+    "Country": "IND"
+     }] ,
+
+ "PoBoxAddress":[
+ {
+        "Address": "gopalpura",
+        "Suburb": "area23",
+        "State":  "mp",
+        "PostCode":"23233",
+        "Country": "ind"
+    
+      }],
+
+ "Paymentterms":[
+        {
+         "PaymentTerms":"cash",
+         "withHoldingTaxType":"cash1",
+         "validate": false,
+         "Payment method":"Cheque",
+         "PaymentTermsValueState":"",
+         "PaymentTermsValueStateText":""
+        }
+    ],
+
+ "AccountInformation":[
+            {
+           "Accountholdername":"Yash",
+           "AccountholdernameValueState":"",
+           "AccountholdernameValueStateText":"",
+           
+           "AccountNumber":"1610324304",
+           "BSB":"244244",
+           "BankName":"SBI"
+            }
+    ],
+
+ "ContactInformation":[
+        {
+       "FirstName":"jack",
+       "phone":"73733728332",
+       "Email":"yoo@2123",
+       "Contactpreference":"3e33eer",
+       "lastName":" beckham",
+       "MobileNo":"44355633",
+       "fax":"cs",
+       "formVisible": false,
+       "secondformVisible":false,
+       "deleteformVisible": true
+       }
+    ],
+
+ "PurchaseOrderContact":[
+        {
+       "PoBox":"",
+       "FirstName":"",
+       "phone":"",
+       "Email":"",
+       "Contactpreference":"",
+       "lastName":"",
+       "MobileNo":"",
+       "fax":""
+       }
+    ],
+    "street-address":{
+
+        "addresses": [],
+        "addAdddressEnabled": true
+
+    }
+
+}
+   
+ 
+
+
+
+
+    
+  
+
+
+
+    
+    
+    
+
+
+    
+
+
+

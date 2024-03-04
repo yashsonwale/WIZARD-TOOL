@@ -1,0 +1,579 @@
+<mvc:View controllerName="form.controller.wizardForm"
+   	xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+		xmlns:core="sap.ui.core"
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns="sap.m" >
+		<NavContainer id="wizardNavContainer">
+			<pages>
+				<Page
+				id="wizardContentPage"
+				showHeader="false">
+					<content>
+						<Wizard id="CreateProductWizard" 
+								complete="wizardCompletedHandler">
+							<WizardStep id="ProducthsType"
+										title="Supplier information"
+										validated="{/StreetAddress/0/validate}">
+                   
+                                     <f:SimpleForm  layout="ColumnLayout" editable="true">
+                                        <f:content>
+                                        <core:Title/> 
+                                        <Label  text="{i18n>crossone}" />
+                                        <Input type="Text"  value="{/SupplierInformation/0/AccountGroup}" />
+                                        <Label required="true" text="{i18n>crosstwo}" />
+                                        <Input type="Number"  value="{/SupplierInformation/0/ABN}" valueState="{/SupplierInformation/0/ABNValueState}"  valueStateText="{/SupplierInformation/0/ABNValueStateText}" change="onABN"/>
+                                        <Label text="{i18n>crosssix}" />
+                                        <Input type="Text"  value="{/SupplierInformation/0/Entity type}"    />
+                                        <Label text ="{i18n>crossfive}"/> 
+                                        
+                                        <core:Title/> 
+                                        <Label required="true" text="{i18n>crossthree}" />
+                                        <Input type="Text" value="{/SupplierInformation/0/TradingName}"  valueState="{/SupplierInformation/0/TradingNameValueState}"  valueStateText="{/SupplierInformation/0/TradingNameValueStateText}" change="onTrading" />  
+                                         <Label text="{i18n>crossfour}" />
+                                        <Input type="Text" value="{/SupplierInformation/0/Legal Name}" />
+                                          <Label text="{i18n>cross}" />
+                                        <Input type="Text" value="{/SupplierInformation/0/Supplier Name}" />
+                                       
+                                        </f:content>
+                                        
+                                        </f:SimpleForm>
+                                        
+                                         
+                                        
+
+                                        <f:SimpleForm title=" Address" layout="ColumnLayout" editable="true">
+                                        <f:content >
+                                        <core:Title text="Street Address" />
+                                        <Label required="true" text="{i18n>add}"/>
+                        <Input id="AddressId" type="Text" value="{/StreetAddress/0/Address}" valueState="{/StreetAddress/0/AddressValueState}" valueStateText="{/StreetAddress/0/AddressValueStateText}" change="onaddress"/>
+
+ <!--                                                                    add address line -->
+                               <!-- <Link text="Add Address line" press="onAddAddress" enabled="{/street-address/addAdddressEnabled}"/>
+                                 <Label/> -->
+                                <!-- <List  includeItemInSelection="true" items="{path:'/street-address/addresses'}" mode="Delete" showNoData="false" delete="onItemDelete">
+                                <CustomListItem id="idcustomlistitem">
+                                <Input value="{Address}"></Input>    
+                                </CustomListItem>
+                                </List>  -->
+
+
+                                            
+                                             
+
+
+
+                                        <Label required="true" text="{i18n>addone}" />
+                                        <Input type="Text" value="{/StreetAddress/0/Suburb}"  />
+                                        <Label required="true" text="{i18n>addtwo}" />
+                                        <Input type="Text" value="{/StreetAddress/0/State}" />
+                                        <Label required="true" text="{i18n>addthree}" />
+                                        <Input type="Text"  value="{/StreetAddress/0/PostCode}"  />
+                                         <Label required="true" text="{i18n>addfour}" />
+                                        <Input type="Text" value="{/StreetAddress/0/Country}" />
+                                         
+
+                                      <core:Title text="{i18n>box}" />      
+                            
+                                        <Label  text="PO Box"/>
+                                        <Input type="Text" value="{/PoBoxAddress/0/Address}" />
+                                        <!--      po box button -->
+                                        <Label/>
+                                        <Button text="{i18n>boxfive}" type="Transparent" press="onpress"/>
+
+                                        <Label  text="{i18n>boxone}" />
+                                        <Input type="Text" value="{/PoBoxAddress/0/Suburb}" />
+                                        <Label  text="{i18n>boxtwo}" />
+                                        <Input type="Text" value="{/PoBoxAddress/0/State}" />
+                                        <Label  text="{i18n>boxthree}" />
+                                        <Input type="Text" value="{/PoBoxAddress/0/PostCode}"/>
+                                         <Label text="{i18n>boxfour}" />
+                                        <Input type="Text" value="{/PoBoxAddress/0/Country}" />
+                                         </f:content>
+                                        
+                                        </f:SimpleForm>
+                                        </WizardStep> 
+
+                                       <WizardStep id="PaymentTerms" title="{i18n>paythree}" validated="true">
+                                       <f:SimpleForm  layout="ColumnLayout">
+                                        <f:content>
+                                        <Label required="true" text="{i18n>pay}" />
+                                        <Input type="Text" value="{/Paymentterms/0/PaymentTerms}" valueState="{/Paymentterms/0/PaymentTermsValueState}" valueStateText="{/Paymentterms/0/PaymentTermsValueStateText}" change="onPayment" />
+                                        <Label required="true" text="{i18n>payone}" />
+                                        <Input type="Text"   value="{/Paymentterms/0/withHoldingTaxType}"  />
+                                        <Label text="{i18n>paytwo}"/>
+                                        <Input type="Text"  value="{/Paymentterms/0/Payment method}" />
+                                         </f:content>
+                                        
+                                        </f:SimpleForm>
+                                          </WizardStep>  
+
+                                          <!-- 3 Wizard Step     Account information -->
+                                            
+
+
+                                       <WizardStep id="Acc" title="{i18n>accone}" validated="true">
+                                       <f:SimpleForm  layout="ColumnLayout">
+                                        <f:content>
+                                        <Label required="true" text="{i18n>acctwo}"/>
+                                        <Input type="Text" value="{/AccountInformation/0/Accountholdername}"  valueState="{/AccountInformation/0/AccountholdernameValueState}" valueStateText="{/AccountInformation/0/AccountholdernameValueStateText}" change="onAccount" />
+                                        <Label required="true" text="{i18n>accthree}"/>
+                                        <Input type="Text" value="{/AccountInformation/0/AccountNumber}"/>
+                                        <Label text="{i18n>accfour}" />
+                                        <Input type="Text" value="{/AccountInformation/0/BSB}"/>
+                                        <Label text="{i18n>accfive}" />
+                                        <Input type="Text" value="{/AccountInformation/0/BankName}"/>
+                                         </f:content>
+                                        
+                                        </f:SimpleForm>
+                                       </WizardStep> 
+
+                                          <!--     4    wizard step Contact  information   -->
+
+
+
+
+                                                                     
+                                       <WizardStep id="Contact" title="{i18n>plusseven}" validated="true">
+                                                  
+
+                                         <f:SimpleForm layout="ColumnLayout"> 
+
+                                         <f:toolbar>
+                                                      <Toolbar id="TB1">
+                                                        <Title id="Title1" text="{i18n>great}"/>
+                                                        <ToolbarSpacer />
+                                                        <Link text="{i18n>greatone}" press="onClick" />
+                                                        
+                                                      </Toolbar>
+                                                </f:toolbar> 
+
+                                       
+                                        <f:content >
+                                        
+                                        <Label required="true" text="{i18n>plus}"/>
+                                         <Input type="Text" value="{/ContactInformation/0/FirstName}" />
+                                        <Label required="true" text="{i18n>plusone}" />
+                                        <Input type="Text" value="{/ContactInformation/0/phone}" />
+                                        <Label required="true" text="{i18n>plustwo}" />
+                                        <Input type="Email" value="{/ContactInformation/0/Email}"/>
+                                        <Label required="true" text="{i18n>plusthree}" />
+                                        <Input type="Text" value="{/ContactInformation/0/Contactpreference}" />
+                                         <Label required="true" text="{i18n>plusfour}" />
+                                        <Input type="Text" value="{/ContactInformation/0/lastName}"/>
+                                         <Label required="true" text="{i18n>plusfive}" />
+                                        <Input type="Text" value="{/ContactInformation/0/MobileNo}"/>
+                                         <Label required="true" text="{i18n>plusSix}" />
+                                        <Input type="Text" value="{/ContactInformation/0/fax}" />
+                                        
+                                         </f:content>
+                                        
+                                        </f:SimpleForm   >
+
+                                        <!--  add other contact form  on click making it enable -->
+                                            <f:SimpleForm id="simpleFormAddID"  visible="{/ContactInformation/0/formVisible}" layout="ColumnLayout"> 
+
+                                         <f:toolbar>
+                                                      <Toolbar id="T">
+                                                        <Title id="Title2" text="{}"/>
+                                                        <ToolbarSpacer />
+                                                        <Link text="Delete First contact form" press="onDelete" />
+                                                        
+                                                      </Toolbar>
+                                                </f:toolbar> 
+
+                                       
+                                        <f:content >
+                                        
+                                        <Label required="true" text="{i18n>plus}"/>
+                                         <Input type="Text" value="{}" />
+                                        <Label required="true" text="{i18n>plusone}" />
+                                        <Input type="Text" value="{}" />
+                                        <Label required="true" text="{i18n>plustwo}" />
+                                        <Input type="Text" value="{}"/>
+                                        <Label required="true" text="{i18n>plusthree}" />
+                                        <Input type="Text" value="{}" />
+                                         <Label required="true" text="{i18n>plusfour}" />
+                                        <Input type="Text" value="{}"/>
+                                         <Label required="true" text="{i18n>plusfive}" />
+                                        <Input type="Text" value="{}"/>
+                                         <Label required="true" text="{i18n>plusSix}" />
+                                        <Input type="Text" value="{}" />
+                                        
+                                         </f:content>
+                                        
+                                        </f:SimpleForm>
+
+                                        <!--                        end of  add other Contact form           -->
+
+
+                                       <!--                    2nd other contact form      -->
+                                                 <f:SimpleForm id="simple2"  visible="{/ContactInformation/0/secondformVisible}" layout="ColumnLayout"> 
+
+                                         <f:toolbar>
+                                                      <Toolbar id="TT">
+                                                        <Title id="Title22" text="{}"/>
+                                                        <ToolbarSpacer />
+                                                        <Link text="Delete second contact form"  press="onDeletetwo" />
+                                                        
+                                                      </Toolbar>
+                                                </f:toolbar> 
+
+                                       
+                                        <f:content >
+                                        
+                                        <Label required="true" text="{i18n>plus}"/>
+                                         <Input type="Text" value="{}" />
+                                        <Label required="true" text="{i18n>plusone}" />
+                                        <Input type="Text" value="{}" />
+                                        <Label required="true" text="{i18n>plustwo}" />
+                                        <Input type="Text" value="{}"/>
+                                        <Label required="true" text="{i18n>plusthree}" />
+                                        <Input type="Text" value="{}" />
+                                         <Label required="true" text="{i18n>plusfour}" />
+                                        <Input type="Text" value="{}"/>
+                                         <Label required="true" text="{i18n>plusfive}" />
+                                        <Input type="Text" value="{}"/>
+                                         <Label required="true" text="{i18n>plusSix}" />
+                                        <Input type="Text" value="{}" />
+                                        
+                                         </f:content>
+                                        
+                                        </f:SimpleForm>
+                                                 <!--     End of 2  other contact form         -->
+
+                 <!--                            purchase order order contact form                         -->
+
+                                                  
+                                        <f:SimpleForm  layout="ColumnLayout" >
+                                        <f:toolbar>
+                                                      <Toolbar id="TB">
+                                                        <Title id="TB2" text="{i18n>series}"/>
+                                                        <ToolbarSpacer />
+                                                        <Link text="{i18n>serieseight}" press="CopyRemittance" />
+                                                       
+                                                        
+                                                      </Toolbar>
+                                                </f:toolbar> 
+
+                                        <f:content>
+                                       
+                                        <Label  text="PO Box"/>
+                                        <Input type="Text"  value="{/PurchaseOrderContact/0/PoBox}" />
+                                        <Label  text="{i18n>seriesone}" />
+                                        <Input type="Text" value="{/PurchaseOrderContact/0/FirstName}" />
+                                        <Label  text="{i18n>seriestwo}" />
+                                        <Input type="Text" value="{/PurchaseOrderContact/0/phone}" />
+                                        <Label  text="{i18n>seriesthree}" />
+                                        <Input type="Text"  value="{/PurchaseOrderContact/0/Email}" />
+                                         <Label text="{i18n>seriesfour}" />
+                                        <Input type="Text" value="{/PurchaseOrderContact/0/Contactpreference}" />
+                                         <Label text="{i18n>seriesfive}" />
+                                        <Input type="Text" value="{/PurchaseOrderContact/0/lastName}" />
+                                         <Label text="{i18n>seriessix}" />
+                                        <Input type="Text" value="{/PurchaseOrderContact/0/MobileNo}"/>
+                                        <Label text="{i18n>seriesseven}" />
+                                        <Input type="Text" value="{/PurchaseOrderContact/0/fax}" />
+                                        
+                                        
+                                        </f:content>
+                                        </f:SimpleForm>
+
+                                        
+
+
+                                      
+                                      </WizardStep>
+                                                              <!--    5   attachment  -->
+                                                 
+
+
+
+
+                                        <WizardStep id="Attach" title="{i18n>create}" validated="true">
+                                       <Label text="{i18n>createone}"/>
+                                             
+                                            	<UploadCollection
+                                                      id="UploadCollection"
+                                                      maximumFilenameLength="55"
+                                                      maximumFileSize="10"
+                                                      multiple="true"
+                                                      sameFilenameAllowed="true"
+                                                      instantUpload="false"
+                                                      noDataDescription="Drop files or use the &quot;Add&quot; button to keep files ready for upload"
+                                                      change="onChange"
+                                                      fileDeleted="onFileDeleted"
+                                                      filenameLengthExceed="onFilenameLengthExceed"
+                                                      fileSizeExceed="onFileSizeExceed"
+                                                      typeMissmatch="onTypeMissmatch"
+                                                      uploadComplete="onUploadComplete"
+                                                      beforeUploadStarts="onBeforeUploadStarts" />
+                                                    <Button id="Button" text="Upload Now" press="onStartUpload" />
+
+
+
+                                       </WizardStep>
+
+
+
+                                       <!--                       6          notes -->
+
+                                        <WizardStep id="Notes" title="{i18n>block}" validated="true" >
+
+                                       <!-- <Label text="Notes" />
+			                                    <TextArea id="TextArea" cols="200" height="100px" /> -->
+
+                                          <FeedInput
+                                                post="onPost"
+                                                showIcon="false"
+                                                visible="true"
+                                                class="sapUiSmallMarginTopBottom" />
+                                              <List
+                                                showSeparators="Inner"
+                                                items="" 
+                                                >
+                                                <FeedListItem
+                                                showIcon="false"
+                                                  sender="{Author}"
+                                                  senderPress="onSenderPress"
+                                                  info="{Type}"
+                                                  timestamp="{Date}"
+                                                  text="{Text}"
+                                                  convertLinksToAnchorTags="All"/>
+                                              </List>
+                                              
+                                        
+                                     
+                                        
+                                         
+                                       </WizardStep> 
+                                       
+                                  </Wizard>
+							
+					                </content>
+					                        	<footer>
+			<OverflowToolbar id="baseFooter">
+				<ToolbarSpacer/>
+        <Button type="Emphasized" text="Submit" enabled="false">
+					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow" /></layoutData>
+				</Button>
+				<Button type="Transparent" text="Save as Draft">
+					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow" /></layoutData>
+				</Button>
+				<Button type="Transparent" text="Cancel">
+					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow" /></layoutData>
+				</Button>
+				
+
+			     </OverflowToolbar>
+	   	</footer>
+    
+       </Page>
+
+                    <!--                                          review page -->
+        <Page            
+				    id="wizardReviewPage"
+				showHeader="false">
+        <content>
+          <f:SimpleForm  layout="ColumnLayout" title="Supplier Information">
+          <f:content>
+            <core:Title/> 
+                                         <Label required="true" text="{i18n>crossone}" />
+                                        <Text   text="{/SupplierInformation/0/AccountGroup}" />
+                                        <Label required="true" text="{i18n>crosstwo}" />
+                                        <Text   text="{/SupplierInformation/0/ABN}" />
+                                        <Label text="{i18n>crosssix}" />
+                                        <Text   text="{/SupplierInformation/0/Entity }"    />
+                                        <Label text ="{i18n>crossfive}"/> 
+                                       
+                                        <core:Title/> 
+                                        <Label required="true" text="{i18n>crossthree}" />
+                                        <Text  text="{/SupplierInformation/0/Trading Name}"  />
+                                         <Label text="{i18n>crossfour}" />
+                                        <Text  text="{/SupplierInformation/0/Legal Name}" />
+                                          <Label text="{i18n>cross}" />
+                                        <Text  text="{/SupplierInformation/0/Supplier Name}" /> 
+           
+          </f:content>
+         
+          </f:SimpleForm>
+          <!--                                     2 form -->
+                                   
+                                        <f:SimpleForm title=" Address" layout="ColumnLayout" editable="true">
+                                        <f:content >
+                                        <core:Title text="Street Address" />
+                                        <Label required="true" text="{i18n>add}"/>
+                                         <Text  text="{/StreetAddress/0/Address}" />
+
+ <!--                                                                    add address line -->
+                                         <!-- <Label />
+                                         <Button text="{i18n>addfive}" type ="Transparent"  press="onClick"/> -->
+
+                                        <Label required="true" text="{i18n>addone}" />
+                                        <Text  text="{/StreetAddress/0/Suburb}"  />
+                                        <Label required="true" text="{i18n>addtwo}" />
+                                        <Text  text="{/StreetAddress/0/State}" />
+                                        <Label required="true" text="{i18n>addthree}" />
+                                        <Text   text="{/StreetAddress/0/PostCode}"  />
+                                         <Label required="true" text="{i18n>addfour}" />
+                                        <Text  text="{/StreetAddress/0/Country}" />
+                                         
+
+                                      <core:Title text="{i18n>box}" />      
+                            
+                                        <Label  text="PO Box"/>
+                                        <Text  text="{/PoBoxAddress/0/Address}" />
+                                        <!--      po box button -->
+                                        <!-- <Label/>
+                                        <Button text="{i18n>boxfive}" type="Transparent" press="onpress"/> -->
+
+                                        <Label  text="{i18n>boxone}" />
+                                        <Text  text="{/PoBoxAddress/0/Suburb}" />
+                                        <Label  text="{i18n>boxtwo}" />
+                                        <Text  text="{/PoBoxAddress/0/State}" />
+                                        <Label  text="{i18n>boxthree}" />
+                                        <Text  text="{/PoBoxAddress/0/PostCode}"/>
+                                         <Label text="{i18n>boxfour}" />
+                                        <Text  text="{/PoBoxAddress/0/Country}" />
+                                         </f:content>
+                                        
+                                        </f:SimpleForm>
+                                        <!-- 3 form -->
+                                        <f:SimpleForm  title="Payments terms" layout="ColumnLayout">
+                                        <f:content>
+                                        <Label required="true" text="{i18n>pay}" />
+                                        <Text  text="{/Paymentterms/0/PaymentTerms}" />
+                                        <Label required="true" text="{i18n>payone}" />
+                                        <Text    text="{/Paymentterms/0/withHoldingTaxType}"  />
+                                        <Label text="{i18n>paytwo}"/>
+                                        <Text   text="{/Paymentterms/0/Payment method}" />
+                                         </f:content>
+                                        
+                                        </f:SimpleForm>
+
+                                        <!-- 4 form -->
+                                        <f:SimpleForm  title="Account information " layout="ColumnLayout">
+                                        <f:content>
+                                        <Label required="true" text="{i18n>acctwo}"/>
+                                        <Text  text="{/AccountInformation/0/Accountholdername}" />
+                                        <Label required="true" text="{i18n>accthree}"/>
+                                        <Text  text="{/AccountInformation/0/AccountNumber}"/>
+                                        <Label text="{i18n>accfour}" />
+                                        <Text  text="{/AccountInformation/0/BSB}"/>
+                                        <Label text="{i18n>accfive}" />
+                                        <Text  text="{/AccountInformation/0/BankName}"/>
+                                         </f:content>
+                                        
+                                        </f:SimpleForm>
+                                        <!-- 5 form  -->
+                                        <f:SimpleForm title="Contact Information" layout="ColumnLayout"> 
+
+                                        <f:content >
+                                        
+                                        <Label required="true" text="{i18n>plus}"/>
+                                         <Text  text="{/ContactInformation/0/FirstName}" />
+                                        <Label required="true" text="{i18n>plusone}" />
+                                        <Text  text="{/ContactInformation/0/phone}" />
+                                        <Label required="true" text="{i18n>plustwo}" />
+                                        <Text  text="{/ContactInformation/0/Email}"/>
+                                        <Label required="true" text="{i18n>plusthree}" />
+                                        <Text  text="{/ContactInformation/0/Contactpreference}" />
+                                         <Label required="true" text="{i18n>plusfour}" />
+                                        <Text  text="{/ContactInformation/0/lastName}"/>
+                                         <Label required="true" text="{i18n>plusfive}" />
+                                        <Text  text="{/ContactInformation/0/MobileNo}"/>
+                                         <Label required="true" text="{i18n>plusSix}" />
+                                        <Text  text="{/ContactInformation/0/fax}" />
+                                        
+                                         </f:content>
+                                        
+                                        </f:SimpleForm   >
+                                        <!-- other contact form -->
+                                         <f:SimpleForm title="other contact form" visible="{/ContactInformation/0/formVisible}" layout="ColumnLayout"> 
+
+                                        <f:content >
+                                        
+                                        <Label required="true"  text="{i18n>plus}"/>
+                                         <Text text="{}" />
+                                        <Label required="true" text="{i18n>plusone}" />
+                                        <Text text="{}" />
+                                        <Label required="true" text="{i18n>plustwo}" />
+                                        <Text text="{}"/>
+                                        <Label required="true" text="{i18n>plusthree}" />
+                                        <Text text="{}" />
+                                         <Label required="true" text="{i18n>plusfour}" />
+                                        <Text text="{}"/>
+                                         <Label required="true" text="{i18n>plusfive}" />
+                                        <Text text="{}"/>
+                                         <Label required="true" text="{i18n>plusSix}" />
+                                        <Text text="{}" />
+                                        
+                                         </f:content>
+                                        
+                                        </f:SimpleForm>
+                                        <!-- purchase order contact form -->
+                                        <f:SimpleForm  title="Po contact form" layout="ColumnLayout" >
+                                      
+                                        <f:content>
+                                       
+                                        <Label  text="PO Box"/>
+                                        <Text   text="{/PurchaseOrderContact/0/PoBox}" />
+                                        <Label  text="{i18n>seriesone}" />
+                                        <Text  text="{/PurchaseOrderContact/0/FirstName}" />
+                                        <Label  text="{i18n>seriestwo}" />
+                                        <Text  text="{/PurchaseOrderContact/0/phone}" />
+                                        <Label  text="{i18n>seriesthree}" />
+                                        <Text   text="{/PurchaseOrderContact/0/Email}" />
+                                         <Label text="{i18n>seriesfour}" />
+                                        <Text  text="{/PurchaseOrderContact/0/Contactpreference}" />
+                                         <Label text="{i18n>seriesfive}" />
+                                        <Text  text="{/PurchaseOrderContact/0/lastName}" />
+                                         <Label text="{i18n>seriessix}" />
+                                        <Text  text="{/PurchaseOrderContact/0/MobileNo}"/>
+                                        <Label text="{i18n>seriesseven}" />
+                                        <Text  text="{/PurchaseOrderContact/0/fax}" />
+                                        
+                                        
+                                        </f:content>
+                                        </f:SimpleForm>
+
+                                        <!-- <core:Fragment fragmentName="wizardForm.Fragments.submit" type="XML"/> -->
+
+
+        </content>
+        <footer>
+			<OverflowToolbar id="baseFooter1">
+				<ToolbarSpacer/>
+        <Button type="Emphasized" text="Submit" enabled="true" press="onSubmit"  >
+					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow" /></layoutData>
+				</Button>
+        <Button type="Transparent" text="Edit" press="editHandler">
+					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow" /></layoutData>
+				</Button>
+				<Button type="Transparent" text="Save as Draft">
+					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow" /></layoutData>
+				</Button>
+				<Button type="Transparent" text="Cancel" press="handleWizardCancel">
+					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow" /></layoutData>
+				</Button>
+				
+
+			     </OverflowToolbar>
+	   	</footer>
+                           
+                        </Page> 
+
+			        </pages>
+		</NavContainer>
+</mvc:View>            
+                                       
+                                       
+
+                                     
+                                       
+                                       
+                                       
+                                        
+								
+							
+    
